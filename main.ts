@@ -339,6 +339,10 @@ controller.left.onEvent(ControllerButtonEvent.Released, function () {
         )
     }
 })
+info.onScore(100, function () {
+    game.setGameOverMessage(true, "you aint total ass")
+    game.gameOver(true)
+})
 controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
     if (menu == 1) {
     	
