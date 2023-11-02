@@ -5,7 +5,8 @@
         "device": "*",
         "controller": "*",
         "animation": "*",
-        "darts": "*"
+        "darts": "*",
+        "ArcadeMIDI": "github:UnsignedArduino/ArcadeMIDI#af121437d59fd6b2cec54501ac437db1eaa766f5"
     },
     "files": [
         "main.blocks",

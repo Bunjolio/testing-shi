@@ -4,66 +4,77 @@ enum ActionKind {
     Jumping
 }
 controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
+    debouncetest = 1
     if (menu == 1) {
     	
     } else {
-        animation.runImageAnimation(
-        mySprite,
-        [img`
-            . . . . f f f f . . . . . 
-            . . f f c c c c f f . . . 
-            . f f c c c c c c f f . . 
-            f f c c c c c c c c f f . 
-            f f c c f c c c c c c f . 
-            f f f f f c c c f c c f . 
-            f f f f c c c f c c f f . 
-            f f f f f f f f f f f f . 
-            f f f f f f f f f f f f . 
-            . f f f f f f f f f f . . 
-            . f f f f f f f f f f . . 
-            f e f f f f f f f f e f . 
-            e 4 f 7 7 7 7 7 7 c 4 e . 
-            e e f 6 6 6 6 6 6 f e e . 
-            . . . f f f f f f . . . . 
-            . . . f f . . f f . . . . 
-            `,img`
-            . . . . . . . . . . . . . 
-            . . . . . f f f f . . . . 
-            . . . f f c c c c f f . . 
-            . f f f c c c c c c f f . 
-            f f c c c c c c c c c f f 
-            f c c c c f c c c c c c f 
-            . f f f f c c c c f c c f 
-            . f f f f c c f c c c f f 
-            . f f f f f f f f f f f f 
-            . f f f f f f f f f f f f 
-            . . f f f f f f f f f f . 
-            . . e f f f f f f f f f . 
-            . . e f f f f f f f f e f 
-            . . 4 c 7 7 7 7 7 e 4 4 e 
-            . . e f f f f f f f e e . 
-            . . . f f f . . . . . . . 
-            `,img`
-            . . . . . . . . . . . . . 
-            . . . . . f f f f . . . . 
-            . . . f f c c c c f f . . 
-            . . f f c c c c c c f f . 
-            . f f f c c c c c c c f f 
-            f f f c c c c c c c c c f 
-            f f c c c f c c c c c c f 
-            . f f f f f c c c f c f f 
-            . f f f f c c f f c f f f 
-            . . f f f f f f f f f f f 
-            . . f f f f f f f f f f . 
-            . . f f f f f f f f f e . 
-            . f e f f f f f f f f e . 
-            . e 4 4 e 7 7 7 7 7 c 4 . 
-            . . e e f f f f f f f e . 
-            . . . . . . . . f f f . . 
-            `],
-        100,
-        true
-        )
+        if (debouncetest == 1) {
+            animation.runImageAnimation(
+            mySprite,
+            [img`
+                . . . . f f f f . . . . . 
+                . . f f c c c c f f . . . 
+                . f f c c c c c c f f . . 
+                f f c c c c c c c c f f . 
+                f f c c f c c c c c c f . 
+                f f f f f c c c f c c f . 
+                f f f f c c c f c c f f . 
+                f f f f f f f f f f f f . 
+                f f f f f f f f f f f f . 
+                . f f f f f f f f f f . . 
+                . f f f f f f f f f f . . 
+                f e f f f f f f f f e f . 
+                e 4 f 7 7 7 7 7 7 c 4 e . 
+                e e f 6 6 6 6 6 6 f e e . 
+                . . . f f f f f f . . . . 
+                . . . f f . . f f . . . . 
+                `,img`
+                . . . . . . . . . . . . . 
+                . . . . . f f f f . . . . 
+                . . . f f c c c c f f . . 
+                . f f f c c c c c c f f . 
+                f f c c c c c c c c c f f 
+                f c c c c f c c c c c c f 
+                . f f f f c c c c f c c f 
+                . f f f f c c f c c c f f 
+                . f f f f f f f f f f f f 
+                . f f f f f f f f f f f f 
+                . . f f f f f f f f f f . 
+                . . e f f f f f f f f f . 
+                . . e f f f f f f f f e f 
+                . . 4 c 7 7 7 7 7 e 4 4 e 
+                . . e f f f f f f f e e . 
+                . . . f f f . . . . . . . 
+                `,img`
+                . . . . . . . . . . . . . 
+                . . . . . f f f f . . . . 
+                . . . f f c c c c f f . . 
+                . . f f c c c c c c f f . 
+                . f f f c c c c c c c f f 
+                f f f c c c c c c c c c f 
+                f f c c c f c c c c c c f 
+                . f f f f f c c c f c f f 
+                . f f f f c c f f c f f f 
+                . . f f f f f f f f f f f 
+                . . f f f f f f f f f f . 
+                . . f f f f f f f f f e . 
+                . f e f f f f f f f f e . 
+                . e 4 4 e 7 7 7 7 7 c 4 . 
+                . . e e f f f f f f f e . 
+                . . . . . . . . f f f . . 
+                `],
+            100,
+            true
+            )
+        } else {
+            animation.runImageAnimation(
+            mySprite,
+            assets.animation`e`,
+            100,
+            false
+            )
+            debouncetest = 0
+        }
     }
 })
 controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
@@ -234,81 +245,111 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
             . . . f f . . f f . . . . 
             `, SpriteKind.Player)
         controller.moveSprite(mySprite)
+        mySprite.setStayInScreen(true)
+    } else {
+        projectile = sprites.createProjectileFromSprite(img`
+            22222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222
+            22222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222
+            22222222222222222222222222222fff222222222fff222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222
+            22222222222222222222222222222f2f2ffff2222f2f2222222222f2222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222
+            22222222222222222222222222222f2f2f22ff222fff222222222f22222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222
+            22222222222222222222222222222f2f2fffff222fffff22222f2f22222222ffff22222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222
+            2222222222222222222222222222fff22fff22222f222ff2222f2f2222222fffff22222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222
+            22222222222222222222222222222222222ff2222ffffff2222ff22222222222f222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222
+            22222222222222222222222222222222222222222f2222222222222222222222f222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222
+            22222222222222222222222222222222222222222222222222222222222222ff2222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222
+            `, mySprite, 0, -100)
     }
 })
 controller.down.onEvent(ControllerButtonEvent.Released, function () {
+    debouncetest = 0
     if (menu == 1) {
     	
     } else {
-        animation.runImageAnimation(
-        mySprite,
-        assets.animation`e`,
-        100,
-        false
-        )
+        if (debouncetest == 1) {
+        	
+        } else {
+            animation.runImageAnimation(
+            mySprite,
+            assets.animation`e`,
+            100,
+            false
+            )
+        }
     }
 })
 controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
+    debouncetest = 1
     if (menu == 1) {
     	
     } else {
-        animation.runImageAnimation(
-        mySprite,
-        [img`
-            . . . . . f f f f f . . . 
-            . . . f f f f f f f f f . 
-            . . f f f c f f f f f f . 
-            . . f f c f f f c f f f f 
-            f f c c f f f c c f f c f 
-            f f f f f e f f f f c c f 
-            . f f f e e f f f f f f f 
-            . . f f e e f b f e e f f 
-            . . . f 4 4 f 1 e 4 e f . 
-            . . . f 4 4 4 4 e f f f . 
-            . . . f f e e e e e f . . 
-            . . . f 7 7 7 e 4 4 e . . 
-            . . . f 7 7 7 e 4 4 e . . 
-            . . . f 6 6 6 f e e f . . 
-            . . . . f f f f f f . . . 
-            . . . . . . f f f . . . . 
-            `,img`
-            . . . . . . . . . . . . . 
-            . . . . f f f f f f . . . 
-            . . . f f f f f f f f f . 
-            . . f f f c f f f f f f . 
-            . f f f c f f f c f f f f 
-            f f c c f f f c c f f c f 
-            f f f f f e f f f f c c f 
-            . f f f e e f f f f f f f 
-            . . f f e e f b f e e f f 
-            . . f f 4 4 f 1 e 4 e f . 
-            . . . f 4 4 4 e e f f f . 
-            . . . f f e e 4 4 e f . . 
-            . . . f 7 7 e 4 4 e f . . 
-            . . f f 6 6 f e e f f f . 
-            . . f f f f f f f f f f . 
-            . . . f f f . . . f f . . 
-            `,img`
-            . . . . . . . . . . . . . 
-            . . . . f f f f f f . . . 
-            . . . f f f f f f f f f . 
-            . . f f f c f f f f f f . 
-            . f f f c f f f c f f f f 
-            f f c c f f f c c f f c f 
-            f f f f f e f f f f c c f 
-            . f f f e e f f f f f f f 
-            . f f f e e f b f e e f f 
-            . . f f 4 4 f 1 e 4 e f f 
-            . . . f 4 4 4 4 e f f f . 
-            . . . f f e e e e 4 4 4 . 
-            . . . f 7 7 7 7 e 4 4 e . 
-            . . f f 6 6 6 6 f e e f . 
-            . . f f f f f f f f f f . 
-            . . . f f f . . . f f . . 
-            `],
-        100,
-        true
-        )
+        if (debouncetest == 1) {
+            animation.runImageAnimation(
+            mySprite,
+            [img`
+                . . . . . f f f f f . . . 
+                . . . f f f f f f f f f . 
+                . . f f f c f f f f f f . 
+                . . f f c f f f c f f f f 
+                f f c c f f f c c f f c f 
+                f f f f f e f f f f c c f 
+                . f f f e e f f f f f f f 
+                . . f f e e f b f e e f f 
+                . . . f 4 4 f 1 e 4 e f . 
+                . . . f 4 4 4 4 e f f f . 
+                . . . f f e e e e e f . . 
+                . . . f 7 7 7 e 4 4 e . . 
+                . . . f 7 7 7 e 4 4 e . . 
+                . . . f 6 6 6 f e e f . . 
+                . . . . f f f f f f . . . 
+                . . . . . . f f f . . . . 
+                `,img`
+                . . . . . . . . . . . . . 
+                . . . . f f f f f f . . . 
+                . . . f f f f f f f f f . 
+                . . f f f c f f f f f f . 
+                . f f f c f f f c f f f f 
+                f f c c f f f c c f f c f 
+                f f f f f e f f f f c c f 
+                . f f f e e f f f f f f f 
+                . . f f e e f b f e e f f 
+                . . f f 4 4 f 1 e 4 e f . 
+                . . . f 4 4 4 e e f f f . 
+                . . . f f e e 4 4 e f . . 
+                . . . f 7 7 e 4 4 e f . . 
+                . . f f 6 6 f e e f f f . 
+                . . f f f f f f f f f f . 
+                . . . f f f . . . f f . . 
+                `,img`
+                . . . . . . . . . . . . . 
+                . . . . f f f f f f . . . 
+                . . . f f f f f f f f f . 
+                . . f f f c f f f f f f . 
+                . f f f c f f f c f f f f 
+                f f c c f f f c c f f c f 
+                f f f f f e f f f f c c f 
+                . f f f e e f f f f f f f 
+                . f f f e e f b f e e f f 
+                . . f f 4 4 f 1 e 4 e f f 
+                . . . f 4 4 4 4 e f f f . 
+                . . . f f e e e e 4 4 4 . 
+                . . . f 7 7 7 7 e 4 4 e . 
+                . . f f 6 6 6 6 f e e f . 
+                . . f f f f f f f f f f . 
+                . . . f f f . . . f f . . 
+                `],
+            100,
+            true
+            )
+        } else {
+            animation.runImageAnimation(
+            mySprite,
+            assets.animation`e`,
+            100,
+            false
+            )
+            debouncetest = 0
+        }
     }
 })
 sprites.onOverlap(SpriteKind.Enemy, SpriteKind.Projectile, function (sprite, otherSprite) {
@@ -316,27 +357,37 @@ sprites.onOverlap(SpriteKind.Enemy, SpriteKind.Projectile, function (sprite, oth
     sprites.destroy(sprite)
 })
 controller.right.onEvent(ControllerButtonEvent.Released, function () {
+    debouncetest = 0
     if (menu == 1) {
     	
     } else {
-        animation.runImageAnimation(
-        mySprite,
-        assets.animation`e`,
-        100,
-        false
-        )
+        if (debouncetest == 1) {
+        	
+        } else {
+            animation.runImageAnimation(
+            mySprite,
+            assets.animation`e`,
+            100,
+            false
+            )
+        }
     }
 })
 controller.left.onEvent(ControllerButtonEvent.Released, function () {
+    debouncetest = 0
     if (menu == 1) {
     	
     } else {
-        animation.runImageAnimation(
-        mySprite,
-        assets.animation`e`,
-        100,
-        false
-        )
+        if (debouncetest == 1) {
+        	
+        } else {
+            animation.runImageAnimation(
+            mySprite,
+            assets.animation`e`,
+            100,
+            false
+            )
+        }
     }
 })
 info.onScore(100, function () {
@@ -344,141 +395,168 @@ info.onScore(100, function () {
     game.gameOver(true)
 })
 controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
+    debouncetest = 1
     if (menu == 1) {
     	
     } else {
-        animation.runImageAnimation(
-        mySprite,
-        [img`
-            . . . . . . . . . . . . . 
-            . . . f f f f f f . . . . 
-            . f f f f f f f f f . . . 
-            . f f f f f f c f f f . . 
-            f f f f c f f f c f f f . 
-            f c f f c c f f f c c f f 
-            f c c f f f f e f f f f f 
-            f f f f f f f e e f f f . 
-            f f e e f b f e e f f f . 
-            f f e 4 e 1 f 4 4 f f . . 
-            . f f f e 4 4 4 4 f . . . 
-            . 4 4 4 e e e e f f . . . 
-            . e 4 4 e 7 7 7 7 f . . . 
-            . f e e f 6 6 6 6 f f . . 
-            . f f f f f f f f f f . . 
-            . . f f . . . f f f . . . 
-            `,img`
-            . . . . . . . . . . . . . 
-            . . . f f f f f f . . . . 
-            . f f f f f f f f f . . . 
-            . f f f f f f c f f f . . 
-            f f f f c f f f c f f f . 
-            f c f f c c f f f c c f f 
-            f c c f f f f e f f f f f 
-            f f f f f f f e e f f f . 
-            f f e e f b f e e f f . . 
-            . f e 4 e 1 f 4 4 f f . . 
-            . f f f e e 4 4 4 f . . . 
-            . . f e 4 4 e e f f . . . 
-            . . f e 4 4 e 7 7 f . . . 
-            . f f f e e f 6 6 f f . . 
-            . f f f f f f f f f f . . 
-            . . f f . . . f f f . . . 
-            `,img`
-            . . . f f f f f . . . . . 
-            . f f f f f f f f f . . . 
-            . f f f f f f c f f f . . 
-            f f f f c f f f c f f . . 
-            f c f f c c f f f c c f f 
-            f c c f f f f e f f f f f 
-            f f f f f f f e e f f f . 
-            f f e e f b f e e f f . . 
-            . f e 4 e 1 f 4 4 f . . . 
-            . f f f e 4 4 4 4 f . . . 
-            . . f e e e e e f f . . . 
-            . . e 4 4 e 7 7 7 f . . . 
-            . . e 4 4 e 7 7 7 f . . . 
-            . . f e e f 6 6 6 f . . . 
-            . . . f f f f f f . . . . 
-            . . . . f f f . . . . . . 
-            `],
-        100,
-        true
-        )
+        if (debouncetest == 1) {
+            animation.runImageAnimation(
+            mySprite,
+            [img`
+                . . . . . . . . . . . . . 
+                . . . f f f f f f . . . . 
+                . f f f f f f f f f . . . 
+                . f f f f f f c f f f . . 
+                f f f f c f f f c f f f . 
+                f c f f c c f f f c c f f 
+                f c c f f f f e f f f f f 
+                f f f f f f f e e f f f . 
+                f f e e f b f e e f f f . 
+                f f e 4 e 1 f 4 4 f f . . 
+                . f f f e 4 4 4 4 f . . . 
+                . 4 4 4 e e e e f f . . . 
+                . e 4 4 e 7 7 7 7 f . . . 
+                . f e e f 6 6 6 6 f f . . 
+                . f f f f f f f f f f . . 
+                . . f f . . . f f f . . . 
+                `,img`
+                . . . . . . . . . . . . . 
+                . . . f f f f f f . . . . 
+                . f f f f f f f f f . . . 
+                . f f f f f f c f f f . . 
+                f f f f c f f f c f f f . 
+                f c f f c c f f f c c f f 
+                f c c f f f f e f f f f f 
+                f f f f f f f e e f f f . 
+                f f e e f b f e e f f . . 
+                . f e 4 e 1 f 4 4 f f . . 
+                . f f f e e 4 4 4 f . . . 
+                . . f e 4 4 e e f f . . . 
+                . . f e 4 4 e 7 7 f . . . 
+                . f f f e e f 6 6 f f . . 
+                . f f f f f f f f f f . . 
+                . . f f . . . f f f . . . 
+                `,img`
+                . . . f f f f f . . . . . 
+                . f f f f f f f f f . . . 
+                . f f f f f f c f f f . . 
+                f f f f c f f f c f f . . 
+                f c f f c c f f f c c f f 
+                f c c f f f f e f f f f f 
+                f f f f f f f e e f f f . 
+                f f e e f b f e e f f . . 
+                . f e 4 e 1 f 4 4 f . . . 
+                . f f f e 4 4 4 4 f . . . 
+                . . f e e e e e f f . . . 
+                . . e 4 4 e 7 7 7 f . . . 
+                . . e 4 4 e 7 7 7 f . . . 
+                . . f e e f 6 6 6 f . . . 
+                . . . f f f f f f . . . . 
+                . . . . f f f . . . . . . 
+                `],
+            100,
+            true
+            )
+        } else {
+            animation.runImageAnimation(
+            mySprite,
+            assets.animation`e`,
+            100,
+            false
+            )
+            debouncetest = 0
+        }
     }
 })
 controller.up.onEvent(ControllerButtonEvent.Released, function () {
+    debouncetest = 0
     if (menu == 1) {
     	
     } else {
-        animation.runImageAnimation(
-        mySprite,
-        assets.animation`e`,
-        100,
-        false
-        )
+        if (debouncetest == 1) {
+        	
+        } else {
+            animation.runImageAnimation(
+            mySprite,
+            assets.animation`e`,
+            100,
+            false
+            )
+        }
     }
 })
 controller.down.onEvent(ControllerButtonEvent.Pressed, function () {
+    debouncetest = 1
     if (menu == 1) {
     	
     } else {
-        animation.runImageAnimation(
-        mySprite,
-        [img`
-            . . . . f f f f . . . . . 
-            . . f f f f f f f f . . . 
-            . f f f f f f c f f f . . 
-            f f f f f f c c f f f c . 
-            f f f c f f f f f f f c . 
-            c c c f f f e e f f c c . 
-            f f f f f e e f f c c f . 
-            f f f b f e e f b f f f . 
-            . f 4 1 f 4 4 f 1 4 f . . 
-            . f e 4 4 4 4 4 4 e f . . 
-            . f f f e e e e f f f . . 
-            f e f b 7 7 7 7 b f e f . 
-            e 4 f 7 7 7 7 7 7 f 4 e . 
-            e e f 6 6 6 6 6 6 f e e . 
-            . . . f f f f f f . . . . 
-            . . . f f . . f f . . . . 
-            `,img`
-            . . . . . . . . . . . . . 
-            . . . . . f f f f . . . . 
-            . . . f f f f f f f f . . 
-            . . f f f f f f c f f f . 
-            f f f f f f f c c f f f c 
-            f f f f c f f f f f f f c 
-            . c c c f f f e e f f c c 
-            . f f f f f e e f f c c f 
-            . f f f b f e e f b f f f 
-            . f f 4 1 f 4 4 f 1 4 f f 
-            . . f e 4 4 4 4 4 e e f e 
-            . f e f b 7 7 7 e 4 4 4 e 
-            . e 4 f 7 7 7 7 e 4 4 e . 
-            . . . f 6 6 6 6 6 e e . . 
-            . . . f f f f f f f . . . 
-            . . . f f f . . . . . . . 
-            `,img`
-            . . . . . . . . . . . . . 
-            . . . . f f f f . . . . . 
-            . . f f f f f f f f . . . 
-            . f f f c f f f f f f . . 
-            c f f f c c f f f f f f f 
-            c f f f f f f f c f f f f 
-            c c f f e e f f f c c c . 
-            f c c f f e e f f f f f . 
-            f f f b f e e f b f f f . 
-            f f 4 1 f 4 4 f 1 4 f f . 
-            e f e e 4 4 4 4 4 e f . . 
-            e 4 4 4 e 7 7 7 b f e f . 
-            . e 4 4 e 7 7 7 7 f 4 e . 
-            . . e e 6 6 6 6 6 f . . . 
-            . . . f f f f f f f . . . 
-            . . . . . . . f f f . . . 
-            `],
-        100,
-        true
-        )
+        if (debouncetest == 1) {
+            animation.runImageAnimation(
+            mySprite,
+            [img`
+                . . . . f f f f . . . . . 
+                . . f f f f f f f f . . . 
+                . f f f f f f c f f f . . 
+                f f f f f f c c f f f c . 
+                f f f c f f f f f f f c . 
+                c c c f f f e e f f c c . 
+                f f f f f e e f f c c f . 
+                f f f b f e e f b f f f . 
+                . f 4 1 f 4 4 f 1 4 f . . 
+                . f e 4 4 4 4 4 4 e f . . 
+                . f f f e e e e f f f . . 
+                f e f b 7 7 7 7 b f e f . 
+                e 4 f 7 7 7 7 7 7 f 4 e . 
+                e e f 6 6 6 6 6 6 f e e . 
+                . . . f f f f f f . . . . 
+                . . . f f . . f f . . . . 
+                `,img`
+                . . . . . . . . . . . . . 
+                . . . . . f f f f . . . . 
+                . . . f f f f f f f f . . 
+                . . f f f f f f c f f f . 
+                f f f f f f f c c f f f c 
+                f f f f c f f f f f f f c 
+                . c c c f f f e e f f c c 
+                . f f f f f e e f f c c f 
+                . f f f b f e e f b f f f 
+                . f f 4 1 f 4 4 f 1 4 f f 
+                . . f e 4 4 4 4 4 e e f e 
+                . f e f b 7 7 7 e 4 4 4 e 
+                . e 4 f 7 7 7 7 e 4 4 e . 
+                . . . f 6 6 6 6 6 e e . . 
+                . . . f f f f f f f . . . 
+                . . . f f f . . . . . . . 
+                `,img`
+                . . . . . . . . . . . . . 
+                . . . . f f f f . . . . . 
+                . . f f f f f f f f . . . 
+                . f f f c f f f f f f . . 
+                c f f f c c f f f f f f f 
+                c f f f f f f f c f f f f 
+                c c f f e e f f f c c c . 
+                f c c f f e e f f f f f . 
+                f f f b f e e f b f f f . 
+                f f 4 1 f 4 4 f 1 4 f f . 
+                e f e e 4 4 4 4 4 e f . . 
+                e 4 4 4 e 7 7 7 b f e f . 
+                . e 4 4 e 7 7 7 7 f 4 e . 
+                . . e e 6 6 6 6 6 f . . . 
+                . . . f f f f f f f . . . 
+                . . . . . . . f f f . . . 
+                `],
+            100,
+            true
+            )
+        } else {
+            animation.runImageAnimation(
+            mySprite,
+            assets.animation`e`,
+            100,
+            false
+            )
+            debouncetest = 0
+        }
     }
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) {
@@ -488,6 +566,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSp
 let myDart: Dart = null
 let projectile: Sprite = null
 let mySprite: Sprite = null
+let debouncetest = 0
 let menu = 0
 menu = 1
 scene.setBackgroundImage(img`
