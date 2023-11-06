@@ -73,7 +73,6 @@ controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
             100,
             false
             )
-            debouncetest = 0
         }
     }
 })
@@ -348,7 +347,6 @@ controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
             100,
             false
             )
-            debouncetest = 0
         }
     }
 })
@@ -464,7 +462,6 @@ controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
             100,
             false
             )
-            debouncetest = 0
         }
     }
 })
@@ -555,7 +552,6 @@ controller.down.onEvent(ControllerButtonEvent.Pressed, function () {
             100,
             false
             )
-            debouncetest = 0
         }
     }
 })
